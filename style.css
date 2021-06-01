@@ -66,6 +66,10 @@ h2.destination {
   color: blueviolet;
 }
 
+div.description{
+  color: black; 
+}
+
 li h4 {
   color: gold;
 }
