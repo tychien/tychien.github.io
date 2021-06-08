@@ -3,7 +3,7 @@ const assert = require('chai').assert;
 const fs = require('fs');
 const Structured = require('structured');
 
-const code = fs.readFileSync('public/main.js', 'utf8');
+const code = fs.readFileSync('../public/main.js', 'utf8');
 
 describe('', function () {
   it('', function() {
