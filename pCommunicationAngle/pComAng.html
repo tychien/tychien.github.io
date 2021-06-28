@@ -1,0 +1,32 @@
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-2.3.0.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.3.0.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.3.0.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdn.bokeh.org/bokeh/release/bokeh-api-2.3.0.min.js" crossorigin="anonymous"></script>
+
+<div id="container">
+  <h1>pCommunicationAngle</h1>
+  
+ <div id="description">
+   <p>This is a visual demonstration of the pCommunicationAngle exercise in <a href="https://oceanai.mit.edu/ivpman/pmwiki/pmwiki.php?n=Lab.ClassOceanEnv">2.680 – Lab 6</a>. To explore how the communication path changes with different environmental parameters, use the controls below the graphs. Please note that if you wish to deactivate the "Match aspect ratio" option, you will need to untick the checkbox and then manually reset the plots using the "Reset" button on the toolbar shown at the top right hand side.</p>
+   
+   <h4>ElevAngle : Computing the elevation angle for communications</h4>
+   <p>The <code>ElevAngle</code> plot illustrates the derivation of the communication path, drawing the reference lines and the center for the circle that represents the communication path itself. Valid communication paths are shown in <code style="color:blue; font-weight:bold">blue</code>, while invalid paths are shown in <code style="color:red; font-weight:bold">red</code>.The plot is focused on the water column, so the center of the comms arc may be out of the default bounds; zoom out to find it.</p>
+   <p>When no valid path is available, the tool will attempt to draw an alternative path starting from vehicle 2. Backtracking a valid path provides a reference for solving the Comms Location challenge, starting with Strategy 1 : Depth change only, on vehicle 1.</p>
+   
+   <h4>Intercept : Dynamic strategies for reestablishing communication</h4>
+   <p>The intercept plot shows a birds-eye view (X-Y plane) of the system. The starting locations of both vehicles are shown, along with the projected transect of vehicle 2. For vehicle 1, the max attainable travel in a given heading/time is shown, assuming the transect will be a straight line seeking to approach vehicle 2 at a given point in time. Thus, the heading choice for vehicle 1 is informed by the predicted location of vehicle 2 at a given time.</p>
+   <p>The locations of the comms ray (arc) center and the closest point on the comms path are also shown, both accounting for the best attainable solution for each point in time. The premise here is that, in addition to the depth-only solution based on the <code>ElevAngle</code> plot, a moving vehicle could seek to optimize for either least time to reestablish communication (grey line crosses red line), or for least distance traveled (closest point on red line, to vehicle 1). In some cases, these two solutions will coincide; other times, as in the default example, these solutions will be distinct.</p>
+   <p>Given the assumption that the vehicle is moving at constant speed, as is the case in the lab 6 problem statement, the time-based optimization may be preferred. However, in scenarios where battery is limited, for example, the range-based solution may be preferable.</p>
+
+  </div>
+  
+  <div id="pCommsPlot"></div>
+  <div>
+    <h2>Report</h2>
+    <div id="report-container">
+      <div class="report" id="report1"></div>
+      <div class="report" id="report2"></div>
+      <div class="report" id="report3"></div>
+    </div>
+  </div>
+</div>
